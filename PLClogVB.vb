@@ -120,6 +120,31 @@
         System.Windows.Forms.Application.DoEvents()
 
         For i = 0 To NumMach
+            Dim PictString = "\images\Off.Bmp"
+            If MachStatCode(i) = 0 Then PictString = "images\Off.Bmp"
+            If MachStatCode(i) = 1 Then PictString = "images\PwrOn.Bmp"
+            If MachStatCode(i) = 3 Then PictString = "images\Run.Bmp"
+
+            Select Case i
+                Case 0
+                    Mach1.Image = Image.FromFile(PictString)
+                Case 1
+                    Mach2.Image = Image.FromFile(PictString)
+                Case 2
+                    Mach3.Image = Image.FromFile(PictString)
+                Case 3
+                    Mach4.Image = Image.FromFile(PictString)
+                Case 4
+                    Mach5.Image = Image.FromFile(PictString)
+                Case 5
+                    Mach6.Image = Image.FromFile(PictString)
+                Case 6
+                    Mach7.Image = Image.FromFile(PictString)
+                Case 7
+                    Mach8.Image = Image.FromFile(PictString)
+                Case 8
+                    Mach9.Image = Image.FromFile(PictString)
+            End Select
             Debug.Print("#" + Str(i) + " " + Str(MachStatCode(i)))
         Next i
     End Sub
