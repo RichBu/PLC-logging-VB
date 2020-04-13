@@ -53,6 +53,12 @@ Partial Class PLClogVB
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.bttnPost = New System.Windows.Forms.Button()
+        Me.tbTmrInterval = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.cbAutoPost = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Mach1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Mach2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,6 +69,8 @@ Partial Class PLClogVB
         CType(Me.Mach7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Mach8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Mach9, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -124,7 +132,7 @@ Partial Class PLClogVB
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(12, 102)
+        Me.Label21.Location = New System.Drawing.Point(12, 114)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(84, 13)
         Me.Label21.TabIndex = 41
@@ -133,7 +141,7 @@ Partial Class PLClogVB
         'ReadVMemsLabel
         '
         Me.ReadVMemsLabel.AutoSize = True
-        Me.ReadVMemsLabel.Location = New System.Drawing.Point(102, 102)
+        Me.ReadVMemsLabel.Location = New System.Drawing.Point(102, 114)
         Me.ReadVMemsLabel.Name = "ReadVMemsLabel"
         Me.ReadVMemsLabel.Size = New System.Drawing.Size(31, 13)
         Me.ReadVMemsLabel.TabIndex = 39
@@ -141,7 +149,7 @@ Partial Class PLClogVB
         '
         'ReadVMemsButton
         '
-        Me.ReadVMemsButton.Location = New System.Drawing.Point(380, 75)
+        Me.ReadVMemsButton.Location = New System.Drawing.Point(13, 11)
         Me.ReadVMemsButton.Name = "ReadVMemsButton"
         Me.ReadVMemsButton.Size = New System.Drawing.Size(75, 23)
         Me.ReadVMemsButton.TabIndex = 38
@@ -152,7 +160,7 @@ Partial Class PLClogVB
         '
         Me.lblReadStatus.AutoSize = True
         Me.lblReadStatus.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.lblReadStatus.Location = New System.Drawing.Point(475, 80)
+        Me.lblReadStatus.Location = New System.Drawing.Point(108, 16)
         Me.lblReadStatus.Name = "lblReadStatus"
         Me.lblReadStatus.Size = New System.Drawing.Size(72, 13)
         Me.lblReadStatus.TabIndex = 42
@@ -164,7 +172,7 @@ Partial Class PLClogVB
         '
         'Mach1
         '
-        Me.Mach1.Location = New System.Drawing.Point(19, 169)
+        Me.Mach1.Location = New System.Drawing.Point(19, 225)
         Me.Mach1.Name = "Mach1"
         Me.Mach1.Size = New System.Drawing.Size(50, 50)
         Me.Mach1.TabIndex = 43
@@ -172,7 +180,7 @@ Partial Class PLClogVB
         '
         'Mach2
         '
-        Me.Mach2.Location = New System.Drawing.Point(115, 169)
+        Me.Mach2.Location = New System.Drawing.Point(115, 225)
         Me.Mach2.Name = "Mach2"
         Me.Mach2.Size = New System.Drawing.Size(50, 50)
         Me.Mach2.TabIndex = 44
@@ -180,7 +188,7 @@ Partial Class PLClogVB
         '
         'Mach3
         '
-        Me.Mach3.Location = New System.Drawing.Point(204, 169)
+        Me.Mach3.Location = New System.Drawing.Point(204, 225)
         Me.Mach3.Name = "Mach3"
         Me.Mach3.Size = New System.Drawing.Size(50, 50)
         Me.Mach3.TabIndex = 45
@@ -188,7 +196,7 @@ Partial Class PLClogVB
         '
         'Mach4
         '
-        Me.Mach4.Location = New System.Drawing.Point(292, 169)
+        Me.Mach4.Location = New System.Drawing.Point(292, 225)
         Me.Mach4.Name = "Mach4"
         Me.Mach4.Size = New System.Drawing.Size(50, 50)
         Me.Mach4.TabIndex = 46
@@ -196,7 +204,7 @@ Partial Class PLClogVB
         '
         'Mach5
         '
-        Me.Mach5.Location = New System.Drawing.Point(19, 257)
+        Me.Mach5.Location = New System.Drawing.Point(19, 313)
         Me.Mach5.Name = "Mach5"
         Me.Mach5.Size = New System.Drawing.Size(50, 50)
         Me.Mach5.TabIndex = 47
@@ -204,7 +212,7 @@ Partial Class PLClogVB
         '
         'Mach6
         '
-        Me.Mach6.Location = New System.Drawing.Point(115, 257)
+        Me.Mach6.Location = New System.Drawing.Point(115, 313)
         Me.Mach6.Name = "Mach6"
         Me.Mach6.Size = New System.Drawing.Size(50, 50)
         Me.Mach6.TabIndex = 48
@@ -212,7 +220,7 @@ Partial Class PLClogVB
         '
         'Mach7
         '
-        Me.Mach7.Location = New System.Drawing.Point(204, 257)
+        Me.Mach7.Location = New System.Drawing.Point(204, 313)
         Me.Mach7.Name = "Mach7"
         Me.Mach7.Size = New System.Drawing.Size(50, 50)
         Me.Mach7.TabIndex = 49
@@ -220,7 +228,7 @@ Partial Class PLClogVB
         '
         'Mach8
         '
-        Me.Mach8.Location = New System.Drawing.Point(292, 257)
+        Me.Mach8.Location = New System.Drawing.Point(292, 313)
         Me.Mach8.Name = "Mach8"
         Me.Mach8.Size = New System.Drawing.Size(50, 50)
         Me.Mach8.TabIndex = 50
@@ -228,7 +236,7 @@ Partial Class PLClogVB
         '
         'Mach9
         '
-        Me.Mach9.Location = New System.Drawing.Point(19, 342)
+        Me.Mach9.Location = New System.Drawing.Point(19, 398)
         Me.Mach9.Name = "Mach9"
         Me.Mach9.Size = New System.Drawing.Size(50, 50)
         Me.Mach9.TabIndex = 51
@@ -238,7 +246,7 @@ Partial Class PLClogVB
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(37, 150)
+        Me.Label1.Location = New System.Drawing.Point(37, 206)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(16, 16)
         Me.Label1.TabIndex = 52
@@ -248,7 +256,7 @@ Partial Class PLClogVB
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(133, 150)
+        Me.Label2.Location = New System.Drawing.Point(133, 206)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(16, 16)
         Me.Label2.TabIndex = 53
@@ -258,7 +266,7 @@ Partial Class PLClogVB
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(223, 150)
+        Me.Label3.Location = New System.Drawing.Point(223, 206)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(16, 16)
         Me.Label3.TabIndex = 54
@@ -268,7 +276,7 @@ Partial Class PLClogVB
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(310, 150)
+        Me.Label4.Location = New System.Drawing.Point(310, 206)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(16, 16)
         Me.Label4.TabIndex = 55
@@ -278,7 +286,7 @@ Partial Class PLClogVB
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(310, 238)
+        Me.Label5.Location = New System.Drawing.Point(310, 294)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(16, 16)
         Me.Label5.TabIndex = 59
@@ -288,7 +296,7 @@ Partial Class PLClogVB
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(223, 238)
+        Me.Label6.Location = New System.Drawing.Point(223, 294)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(16, 16)
         Me.Label6.TabIndex = 58
@@ -298,7 +306,7 @@ Partial Class PLClogVB
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(133, 238)
+        Me.Label7.Location = New System.Drawing.Point(133, 294)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(16, 16)
         Me.Label7.TabIndex = 57
@@ -308,7 +316,7 @@ Partial Class PLClogVB
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(37, 238)
+        Me.Label8.Location = New System.Drawing.Point(37, 294)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(16, 16)
         Me.Label8.TabIndex = 56
@@ -318,17 +326,76 @@ Partial Class PLClogVB
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(37, 323)
+        Me.Label9.Location = New System.Drawing.Point(37, 379)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(16, 16)
         Me.Label9.TabIndex = 60
         Me.Label9.Text = "9"
+        '
+        'bttnPost
+        '
+        Me.bttnPost.Location = New System.Drawing.Point(6, 11)
+        Me.bttnPost.Name = "bttnPost"
+        Me.bttnPost.Size = New System.Drawing.Size(75, 23)
+        Me.bttnPost.TabIndex = 61
+        Me.bttnPost.Text = "Post"
+        Me.bttnPost.UseVisualStyleBackColor = True
+        '
+        'tbTmrInterval
+        '
+        Me.tbTmrInterval.Location = New System.Drawing.Point(13, 44)
+        Me.tbTmrInterval.Name = "tbTmrInterval"
+        Me.tbTmrInterval.Size = New System.Drawing.Size(74, 20)
+        Me.tbTmrInterval.TabIndex = 62
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(93, 44)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(99, 13)
+        Me.Label10.TabIndex = 63
+        Me.Label10.Text = "Update Time (secs)"
+        '
+        'cbAutoPost
+        '
+        Me.cbAutoPost.AutoSize = True
+        Me.cbAutoPost.Location = New System.Drawing.Point(9, 47)
+        Me.cbAutoPost.Name = "cbAutoPost"
+        Me.cbAutoPost.Size = New System.Drawing.Size(72, 17)
+        Me.cbAutoPost.TabIndex = 64
+        Me.cbAutoPost.Text = "Auto Post"
+        Me.cbAutoPost.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.tbTmrInterval)
+        Me.GroupBox1.Controls.Add(Me.lblReadStatus)
+        Me.GroupBox1.Controls.Add(Me.ReadVMemsButton)
+        Me.GroupBox1.Location = New System.Drawing.Point(187, 101)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(212, 73)
+        Me.GroupBox1.TabIndex = 65
+        Me.GroupBox1.TabStop = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.cbAutoPost)
+        Me.GroupBox2.Controls.Add(Me.bttnPost)
+        Me.GroupBox2.Location = New System.Drawing.Point(427, 101)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(111, 73)
+        Me.GroupBox2.TabIndex = 66
+        Me.GroupBox2.TabStop = False
         '
         'PLClogVB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(634, 562)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label6)
@@ -347,10 +414,8 @@ Partial Class PLClogVB
         Me.Controls.Add(Me.Mach3)
         Me.Controls.Add(Me.Mach2)
         Me.Controls.Add(Me.Mach1)
-        Me.Controls.Add(Me.lblReadStatus)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.ReadVMemsLabel)
-        Me.Controls.Add(Me.ReadVMemsButton)
         Me.Controls.Add(Me.ConnectionStatusLabel)
         Me.Controls.Add(Me.ConnectButton)
         Me.Controls.Add(Me.MenuStrip1)
@@ -368,6 +433,10 @@ Partial Class PLClogVB
         CType(Me.Mach7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Mach8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Mach9, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -402,4 +471,10 @@ Partial Class PLClogVB
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
+    Friend WithEvents bttnPost As Button
+    Friend WithEvents tbTmrInterval As TextBox
+    Friend WithEvents Label10 As Label
+    Friend WithEvents cbAutoPost As CheckBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

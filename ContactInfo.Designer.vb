@@ -79,7 +79,7 @@ Partial Class ContactInfo
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(255, 20)
         Me.Label5.TabIndex = 4
-        Me.Label5.Text = "Either internally or external network"
+        Me.Label5.Text = "mounted either internally or external"
         '
         'Label6
         '
@@ -98,7 +98,7 @@ Partial Class ContactInfo
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(121, 20)
         Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Controller Panel"
+        Me.Label8.Text = "network controller panel"
         '
         'Label7
         '
