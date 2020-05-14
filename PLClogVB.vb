@@ -37,8 +37,12 @@ Public Class PLClogVB
         NumberOfDevices = 1
 
         MachStatClearAll()
-        tbTmrInterval.Text = "5"  '5sec default
+        tbTmrInterval.Text = "5"  '5 sec default
+        tbTmrPost.Text = "20"     '20 sec for posting
         tmrUpdate.Enabled = True
+        tmrPost.Enabled = True
+        lblWarn_change.Visible = False
+        lblWarn_Post.Visible = False
     End Sub
 
     'runs when program closes
@@ -117,17 +121,18 @@ Public Class PLClogVB
             ConnectionStatusLabel.Text = "connected"
         End If
 
-        MachStatClearAll()
+        'MachStatClearAll()
         ReadVMemsLabel.Text = ReadStatus("", 1, ReadPLCnum, MachStatCode)
         lblReadStatus.Visible = False
         Me.Refresh()
         System.Windows.Forms.Application.DoEvents()
         System.Windows.Forms.Application.DoEvents()
 
-        MachStatChanged = False
+        'MachStatChanged = False   --- only reset after it has been posted
         For i = 0 To NumMach
             If (MachStatCode(i) <> OldMachStatCode(i)) Then
                 MachStatChanged = True
+                lblWarn_change.Visible = True
                 OldMachStatCode(i) = MachStatCode(i)
             End If
             Dim PictString = "\images\Off.Bmp"
@@ -171,10 +176,9 @@ Public Class PLClogVB
 
     Private Sub tmrUpdate_Tick(sender As Object, e As EventArgs) Handles tmrUpdate.Tick
         Dim forcePost As Boolean = False
-        If MachStatChanged Then forcePost = True
+        MachStatChanged = False
         UpdateStatus()
-        ClicksCurrSame = ClicksCurrSame + 1
-        If ((MachStatChanged = True) Or (forcePost) Or (ClicksCurrSame > ClicksToForceOutput)) Then
+        If ((MachStatChanged = True)) Then
             If Me.cbAutoPost.Checked Then postDataInitiate()
         End If
     End Sub
@@ -195,6 +199,11 @@ Public Class PLClogVB
             Console.WriteLine("successful")
             Console.WriteLine(resString)
             webClient.Dispose()
+            'it was successful so
+            MachStatChanged = False
+            lblWarn_change.Visible = False
+            lblWarn_Post.Visible = False
+            tmrUpdate.Enabled = True
             Return True
         Catch ex As Exception
             Console.WriteLine(ex.Message)
@@ -218,14 +227,15 @@ Public Class PLClogVB
         'do not reset the MachStatChanged  flag, let the update change it
         ClicksCurrSame = 0
 
+        lblWarn_Post.Visible = True
         dataStr = "{"
         For i = 0 To NumMach
-            valStr = "01"
+            'valStr = "01"
             valStr = MachStatCode(i).ToString("00")
             machNum = i + 1
             outStr = "M" + Strings.Trim(machNum.ToString("0"))
             keyStr = outStr
-            outStr = outStr + " : " + valStr
+            'outStr = outStr + " : " + valStr
             'Console.WriteLine(outStr)
             dictData.Add(keyStr, valStr)
         Next
@@ -249,5 +259,20 @@ Public Class PLClogVB
         tmrValStr = tmrVal.ToString("00.0")
         tbTmrInterval.Text = tmrValStr
         tmrUpdate.Interval = tmrVal * 1000.0
+    End Sub
+
+    Private Sub tmrPost_Tick(sender As Object, e As EventArgs) Handles tmrPost.Tick
+        tmrUpdate.Enabled = False
+        If Me.cbAutoPost.Checked Then postDataInitiate()
+    End Sub
+
+    Private Sub tbTmrPost_Leave(sender As Object, e As EventArgs) Handles tbTmrPost.Leave
+        Dim tmrVal As Single
+        Dim tmrValStr As String
+
+        tmrVal = CSng(tbTmrPost.Text)
+        tmrValStr = tmrVal.ToString("00.0")
+        tbTmrPost.Text = tmrValStr
+        tmrPost.Interval = tmrVal * 1000.0
     End Sub
 End Class
