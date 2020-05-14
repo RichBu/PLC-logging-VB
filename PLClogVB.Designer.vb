@@ -58,7 +58,12 @@ Partial Class PLClogVB
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cbAutoPost = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.tbTmrPost = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.tmrPost = New System.Windows.Forms.Timer(Me.components)
+        Me.lblWarn_change = New System.Windows.Forms.Label()
+        Me.lblWarn_Post = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.Mach1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Mach2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,7 +137,7 @@ Partial Class PLClogVB
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(12, 114)
+        Me.Label21.Location = New System.Drawing.Point(12, 88)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(84, 13)
         Me.Label21.TabIndex = 41
@@ -141,7 +146,7 @@ Partial Class PLClogVB
         'ReadVMemsLabel
         '
         Me.ReadVMemsLabel.AutoSize = True
-        Me.ReadVMemsLabel.Location = New System.Drawing.Point(102, 114)
+        Me.ReadVMemsLabel.Location = New System.Drawing.Point(102, 88)
         Me.ReadVMemsLabel.Name = "ReadVMemsLabel"
         Me.ReadVMemsLabel.Size = New System.Drawing.Size(31, 13)
         Me.ReadVMemsLabel.TabIndex = 39
@@ -369,31 +374,77 @@ Partial Class PLClogVB
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.tbTmrPost)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.tbTmrInterval)
         Me.GroupBox1.Controls.Add(Me.lblReadStatus)
         Me.GroupBox1.Controls.Add(Me.ReadVMemsButton)
-        Me.GroupBox1.Location = New System.Drawing.Point(187, 101)
+        Me.GroupBox1.Location = New System.Drawing.Point(187, 77)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(212, 73)
+        Me.GroupBox1.Size = New System.Drawing.Size(212, 106)
         Me.GroupBox1.TabIndex = 65
         Me.GroupBox1.TabStop = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(93, 71)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(85, 13)
+        Me.Label11.TabIndex = 68
+        Me.Label11.Text = "Post Time (secs)"
+        '
+        'tbTmrPost
+        '
+        Me.tbTmrPost.Location = New System.Drawing.Point(13, 71)
+        Me.tbTmrPost.Name = "tbTmrPost"
+        Me.tbTmrPost.Size = New System.Drawing.Size(74, 20)
+        Me.tbTmrPost.TabIndex = 67
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.cbAutoPost)
         Me.GroupBox2.Controls.Add(Me.bttnPost)
-        Me.GroupBox2.Location = New System.Drawing.Point(427, 101)
+        Me.GroupBox2.Location = New System.Drawing.Point(427, 78)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(111, 73)
         Me.GroupBox2.TabIndex = 66
         Me.GroupBox2.TabStop = False
+        '
+        'tmrPost
+        '
+        Me.tmrPost.Interval = 20000
+        '
+        'lblWarn_change
+        '
+        Me.lblWarn_change.AutoSize = True
+        Me.lblWarn_change.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWarn_change.ForeColor = System.Drawing.Color.Red
+        Me.lblWarn_change.Location = New System.Drawing.Point(411, 186)
+        Me.lblWarn_change.Name = "lblWarn_change"
+        Me.lblWarn_change.Size = New System.Drawing.Size(155, 16)
+        Me.lblWarn_change.TabIndex = 67
+        Me.lblWarn_change.Text = "Status Change Found"
+        '
+        'lblWarn_Post
+        '
+        Me.lblWarn_Post.AutoSize = True
+        Me.lblWarn_Post.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWarn_Post.ForeColor = System.Drawing.Color.Red
+        Me.lblWarn_Post.Location = New System.Drawing.Point(411, 215)
+        Me.lblWarn_Post.Name = "lblWarn_Post"
+        Me.lblWarn_Post.Size = New System.Drawing.Size(91, 16)
+        Me.lblWarn_Post.TabIndex = 68
+        Me.lblWarn_Post.Text = "Post started"
         '
         'PLClogVB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(634, 562)
+        Me.Controls.Add(Me.lblWarn_Post)
+        Me.Controls.Add(Me.lblWarn_change)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label9)
@@ -477,4 +528,9 @@ Partial Class PLClogVB
     Friend WithEvents cbAutoPost As CheckBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents tbTmrPost As TextBox
+    Friend WithEvents tmrPost As Timer
+    Friend WithEvents lblWarn_change As Label
+    Friend WithEvents lblWarn_Post As Label
 End Class
